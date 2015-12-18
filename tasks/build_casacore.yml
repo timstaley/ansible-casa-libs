@@ -37,6 +37,6 @@
   when: casacore_cmake|failed or casacore_make_install|failed
 
 - name: Fail a broken build
-  fail: msg "Casacore build failed"
+  fail: msg="Casacore build failed"
   when:  casacore_cmake|failed or casacore_make_install|failed
 

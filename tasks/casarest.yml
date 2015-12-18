@@ -51,5 +51,5 @@
   when: casarest_cmake|failed or casarest_make_install|failed
 
 - name: Fail a broken build
-  fail: msg "Casarest build failed"
+  fail: msg="Casarest build failed"
   when: casarest_cmake|failed or casarest_make_install|failed
