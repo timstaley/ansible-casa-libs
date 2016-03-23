@@ -1,9 +1,11 @@
-- hosts: casalibsvm
+- hosts: test
 
   pre_tasks:
     - include: base.yml tags=base
 
   roles:
-    - { role: ../../casalibs-src, casalibs_repo_prefix: ~/repos,
-        casalibs_build_ncores: 2}
+    - { role: ../../casalibs-src,
+        casalibs_repo_prefix: ~/repos,
+        casalibs_build_ncores: 2
+      }
 

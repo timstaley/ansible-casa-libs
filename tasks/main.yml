@@ -3,7 +3,7 @@
 - name: Install apt dependencies.
   apt: name={{item}} update_cache=yes cache_valid_time=600
   with_items: casalibs_apt_deps
-  sudo: yes
+  become: yes
   tags: base apt
 
 
@@ -12,7 +12,7 @@
   with_items:
     - "{{ casalibs_repo_prefix }}"
     - "{{ casalibs_install_prefix }}"
-  sudo: yes
+  become: yes
 
 - include: casa_measures.yml tags=casa_measures
 - include: get_casacore_github.yml tags=casacore
@@ -49,4 +49,5 @@
   set_fact:
     casalibs_install_prefix: "{{ casalibs_install_prefix }}"
 
-- include: check_casalibs_ok.yml tags=test
+- include: check_casalibs_ok.yml
+  tags: test

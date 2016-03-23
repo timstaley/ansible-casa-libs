@@ -1,15 +1,15 @@
 - name: Update base packages
   apt: upgrade=safe update_cache=yes cache_valid_time=600
-  sudo: yes
+  become: yes
 
 
 - name: Get easy_install,git
   apt: name=python-setuptools,python-dev,git update_cache=yes cache_valid_time=600
-  sudo: yes
+  become: yes
 
 - name: Get pip, wheel, virtualenv
   easy_install: name={{item}}
-  sudo: yes
+  become: yes
   with_items:
     - pip
     - wheel

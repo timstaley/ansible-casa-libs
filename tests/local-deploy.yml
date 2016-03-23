@@ -1,0 +1,6 @@
+- hosts: localhost
+
+  roles:
+    - { role: ../../casalibs-src, 
+        casalibs_build_ncores: 2}
+
