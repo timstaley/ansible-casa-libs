@@ -6,7 +6,10 @@ repo_dir: "/opt/repos"
 default_install_prefix: "/opt"
 
 casacore_github_version: "2.0.1"
-casarest_svn_rev: "8765"
+
+## Uncomment the following line to build casarest:
+#casarest_svn_rev: "8765"
+
 python_casacore_version: "2.0.0"
 casalibs_repo_prefix: "{{ repo_dir }}/casalibs"
 casalibs_install_prefix: "{{ default_install_prefix }}/casalibs"

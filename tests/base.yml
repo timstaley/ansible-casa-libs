@@ -14,3 +14,11 @@
     - pip
     - wheel
     - virtualenv
+
+- name: Get libraries require for pip to stop complaining about SSL
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - 'requests[security]'
+  become: yes
+

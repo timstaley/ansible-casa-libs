@@ -6,6 +6,5 @@
   roles:
     - { role: ../../casalibs-src,
         casalibs_repo_prefix: ~/repos,
-        casalibs_build_ncores: 2
       }
 

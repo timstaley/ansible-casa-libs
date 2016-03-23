@@ -17,11 +17,14 @@
 - include: casa_measures.yml tags=casa_measures
 - include: get_casacore_github.yml tags=casacore
 - include: build_casacore.yml tags=casacore
-- include: casarest.yml tags=casarest
 - include: python-casacore.yml tags=python-casacore
 
 - include: python-casacore-venv.yml tags=python-casacore
   when: python_casacore_venv is defined
+
+- include: casarest.yml tags=casarest
+  when: casarest_svn_rev is defined
+
 
 - name: Upload script to add casacore / casacore-python to path.
   template:
