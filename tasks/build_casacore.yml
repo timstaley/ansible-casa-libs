@@ -13,9 +13,9 @@
   command: >
             cmake ..  -DCMAKE_INSTALL_PREFIX={{casacore_install_path}} \
               -DDATA_DIR={{casa_measures_datadir.path}} \
-              -DUSE_HDF5=ON \
               -DUSE_THREADS=ON \
               -DBUILD_PYTHON=ON \
+              -DUSE_HDF5=ON \
   args:
     chdir: "{{ casacore_build_dir.path }}"
   when: casacore_build_dir|changed or casacore_install_path_stat.stat.exists == False
@@ -35,6 +35,14 @@
 - name: Clean up failed build
   file: path="{{ casacore_build_dir.path }}" state=absent
   when: casacore_cmake|failed or casacore_make_install|failed
+
+- name: Check for problematic entries in PATH
+  debug:
+    msg: "'casa' detected in $PATH - this can be problematic -
+          check your .bashrc?
+          PATH: {{ lookup('env','PATH') }}"
+  when: casacore_cmake|failed and "casa" in lookup('env','PATH')
+  failed_when: True
 
 - name: Fail a broken build
   fail: msg="Casacore build failed"
