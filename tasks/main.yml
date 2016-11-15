@@ -2,7 +2,7 @@
 # tasks file for casalibs-src
 - name: Install apt dependencies.
   apt: name={{item}} update_cache=yes cache_valid_time=600
-  with_items: casalibs_apt_deps
+  with_items: "{{ casalibs_apt_deps }}"
   become: yes
   tags: base apt
 

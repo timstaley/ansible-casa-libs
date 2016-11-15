@@ -1,9 +1,8 @@
 - hosts: test
 
-  pre_tasks:
-    - include: base.yml tags=base
 
   roles:
+    - { role: timstaley.base }
     - { role: ../../casalibs-src,
         casalibs_repo_prefix: ~/repos,
       }

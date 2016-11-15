@@ -5,7 +5,8 @@
 repo_dir: "/opt/repos"
 default_install_prefix: "/opt"
 
-casacore_github_version: "2.0.1"
+casacore_github_version: "2.0.3"
+#casacore_github_version: "2.1.0"
 
 ## Uncomment the following line to build casarest:
 #casarest_svn_rev: "8765"
@@ -17,3 +18,6 @@ casalibs_install_prefix: "{{ default_install_prefix }}/casalibs"
 #python_casacore_venv:
 python_casacore_venv_site_packages: False
 casalibs_build_ncores: "{{ansible_processor_cores}}"
+
+# Update this periodically:
+astron_wsrt_measures_file: "WSRT_Measures_20161031-000001.ztar"

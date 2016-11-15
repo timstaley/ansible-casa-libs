@@ -1,6 +1,6 @@
 - name: Create casa_measures dir
   file:
-    path: "{{casalibs_repo_prefix}}/casa_measures/"
+    path: "{{casalibs_repo_prefix}}/casa_measures"
     state: directory
   register: casa_measures_dir
   tags:
@@ -8,8 +8,8 @@
 
 - name: Grab casa_measures tarball
   get_url:
-    url: "ftp://ftp.astron.nl/outgoing/Measures/WSRT_Measures_20150629-000001.ztar"
-    dest: "{{ casa_measures_dir.path }}/WSRT_Measures_20150629-000001.ztar"
+    url: "ftp://ftp.astron.nl/outgoing/Measures/{{ astron_wsrt_measures_file }}"
+    dest: "{{ casa_measures_dir.path }}/{{ astron_wsrt_measures_file }}"
   register: casa_measures_tarball
 
 - name: Create casa_measures data-dir
