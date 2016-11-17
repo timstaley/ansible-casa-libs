@@ -1,5 +1,8 @@
 - hosts: test
 
+  vars:
+    casarest_svn_rev: "8765"
+
 
   roles:
     - { role: timstaley.base }

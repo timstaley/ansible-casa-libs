@@ -45,7 +45,7 @@
     src: "{{casalibs_install_prefix}}/{{item.item.split('.')[0]}}-{{casacore_version}}.sh"
     dest: "{{casalibs_install_prefix}}/{{item.item.split('.')[0]}}.sh"
     state: link
-  with_items: casacore_init_scripts.results
+  with_items: "{{ casacore_init_scripts.results }}"
   tags: scripts
 
 - name: Export casalibs_install_prefix to a 'host-fact' type variable
